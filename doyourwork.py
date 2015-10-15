@@ -18,6 +18,10 @@ def main(argv=None):
     sleep_time = args.sleep
     time_since_last_change = 0
 
+    print 'Watching workspace - {watch_workspace} with buffer time - {allowed_tp_time}.'.format(
+        watch_workspace=watch_workspace, allowed_tp_time=allowed_tp_time
+    )
+
     cmd = ['xprop', '-root', '-notype', '_NET_CURRENT_DESKTOP']
     while True:
         x = subprocess.check_output(cmd).strip('\n').split(' = ')[-1]
